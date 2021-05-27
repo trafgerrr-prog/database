@@ -13,7 +13,8 @@ CREATE TABLE menu(
 	belki INTEGER NOT NULL,
 	zhiri INTEGER NOT NULL,
 	uglevodi INTEGER NOT NULL,
-	kcal INTEGER NOT NULL
+	kcal INTEGER NOT NULL,
+	price INTEGER
 )
 
 CREATE TABLE order_list(
@@ -33,24 +34,24 @@ CREATE TABLE orders(
 
 ------
 INSERT INTO menu (id, name, sostav, weight,
-				 belki, zhiri, uglevodi, kcal)
+				 belki, zhiri, uglevodi, kcal, price)
 VALUES (1,'Стейк из черпорога', '2 стейка, олив. масло, слив. масло, соль, 
-		северные пряности, чеснок измел., чеснок целый, сухое вино.', 1000, 270, 150, 0, 2520);
+		северные пряности, чеснок измел., чеснок целый, сухое вино.', 1000, 270, 150, 0, 2520, 5000);
 
 INSERT INTO menu (id, name, sostav, weight,
-				 belki, zhiri, uglevodi, kcal)
+				 belki, zhiri, uglevodi, kcal, price)
 VALUES (2,'Жаренные ножки лесного долгонога', '4 индюшиных ножки, соль, чесночный порошок,
-		молотый кориандр, сушеный майоран, паприка, черный перец.', 2000, 390, 134, 0, 2880);
+		молотый кориандр, сушеный майоран, паприка, черный перец.', 2000, 390, 134, 0, 2880, 7500);
 		
 INSERT INTO menu (id, name, sostav, weight,
-				 belki, zhiri, uglevodi, kcal)
+				 belki, zhiri, uglevodi, kcal, price)
 VALUES (3,'Яйца, запеченные с травами', '4 кур. яйца, тимьян, розмарин, петрушка, соль, черный перец,
-        тертый пармезан, сливки, слив. масло, хлеб.', 120, 15, 11, 1, 171);
+        тертый пармезан, сливки, слив. масло, хлеб.', 120, 15, 11, 1, 171, 200);
 		
 INSERT INTO menu (id, name, sostav, weight,
-				 belki, zhiri, uglevodi, kcal)
+				 belki, zhiri, uglevodi, kcal, price)
 VALUES (4,'Чудесный вишневый пирог', 'Вишня, мука, слив. масло, вишневый сок, сахар, 
-		кукурузный крахмал, корица, молотый кардамон, молотый имбирь, соль, кур. яйцо', 800, 40, 13, 208, 1000);
+		кукурузный крахмал, корица, молотый кардамон, молотый имбирь, соль, кур. яйцо', 800, 40, 13, 208, 1000, 1500);
 ------
 INSERT INTO users (id, name, address, phone_number)
 VALUES (1, 'Петр', 'г. Дубна, ул. Ленинградская, д. 14', '88005553535');
