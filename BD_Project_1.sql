@@ -88,3 +88,37 @@ VALUES (102, 4, now())
 
 INSERT INTO orders (order_id, menu_id, date_order)
 VALUES (103, 4, now())
+----- ЗАПРОСЫ -----
+SELECT m.name as название, m.sostav as состав, m.weight as вес, m.belki as белки, 
+	   m.zhiri as жиры, m.uglevodi as углеводы, m.kcal as ккал, m.price as цена
+FROM menu m
+
+SELECT u.name as имя, ol.id as id_заказа, m.name as блюдо, o.date_order as дата_заказа, ol.order_status as статус_заказа
+FROM users u,
+	 menu m,
+	 order_list ol,
+	 orders o
+WHERE u.id = ol.user_id AND ol.id = o.order_id AND o.menu_id = m.id
+
+SELECT ol.id as id_заказа, m.name as блюдо, u.name as имя, u.address as адрес, u.phone_number as телефон
+FROM users u,
+	 menu m,
+	 order_list ol,
+	 orders o
+WHERE u.id = ol.user_id AND ol.id = o.order_id AND o.menu_id = m.id
+
+SELECT ol.id, ol.order_status
+FROM order_list ol
+WHERE ol.order_status = 'Готовится'
+
+SELECT u.name as имя, u.address as адрес, u.phone_number as телефон
+FROM users u
+
+SELECT count(*) as количество_заказов
+FROM order_list
+WHERE order_status = 'Готовится'
+
+SELECT distinct ol.id as id_заказа, o.date_order as дата_заказа
+FROM order_list ol,
+	 orders o
+WHERE ol.id = o.order_id
