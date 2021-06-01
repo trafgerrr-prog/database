@@ -122,3 +122,29 @@ SELECT distinct ol.id as id_заказа, o.date_order as дата_заказа
 FROM order_list ol,
 	 orders o
 WHERE ol.id = o.order_id
+
+INSERT INTO users (name, address, phone_number)
+VALUES ('Алексей', 'Дубна', 123)
+
+INSERT INTO menu (name, sostav, weight, belki, zhiri, uglevodi, kcal, price)
+VALUES ('Доширак', 'Лапша, бульен', 250, 100, 10, 10, 100, 40)
+
+SELECT ol.id, o.menu_id, m.price, o.date_order
+FROM orders o,
+	 order_list ol,
+	 menu m
+WHERE ol.id = o.order_id AND m.id = o.menu_id
+ORDER BY m.price
+
+SELECT ol.id, o.menu_id, m.price, o.date_order
+FROM orders o,
+	 order_list ol,
+	 menu m
+WHERE ol.id = o.order_id AND m.id = o.menu_id
+ORDER BY o.date_order
+
+SELECT ol.id, m.name, m.price, o.date_order
+FROM orders o,
+	 order_list ol,
+	 menu m
+WHERE ol.id = o.order_id AND m.id = o.menu_id AND o.date_order BETWEEN '2020-01-01' AND '2022-01-01'
